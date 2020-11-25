@@ -1,0 +1,47 @@
+<div style="text-align: center;">
+    <p>gtech works!</p>
+    <h1>FROM VARIABLE {{ name }}</h1>
+    <h1 class="text-success">FROM METHOD {{ getName() }}</h1>
+    <input [disabled]="isdisable" [id]="inputid" type="text" value="ABIR">
+    <h1 [style.color]="hasError ? 'red' : 'green' ">STYLE COLOR CHECK {{ siteurl }}</h1>
+    <h1 [class]="redcolor">FROM URL {{ siteurl }}</h1>
+
+    <button (click)="welcome()">WELCOME</button>
+    <br>
+    {{ name }}
+    <br>
+    <button (click)="name = 'FROM SECOND BUTTON' ">WELCOME</button>
+    <br><br><br>
+
+    <input #myInput type="text">
+    <button (click)="logMessage(myInput.value)">Log</button>
+    <br>
+    {{ result }}
+    <br>
+    <input [(ngModel)]="inputevent" type="text">{{ inputevent }}
+
+    <div *ngIf="ifelsedisplay; then thenview; else elseview"></div>
+    <ng-template #thenview>
+        <h2> GTECH IS SHOWN 1 </h2>
+    </ng-template>
+    <ng-template #elseview>
+        <h2> GTECH IS HIDDEN 1 </h2>
+    </ng-template>
+    <h2 *ngIf="ifelsedisplay; else elsework">GTECH IS SHOWN 2</h2>
+    <ng-template #elsework>
+        <h2> GTECH IS HIDDEN 2</h2>
+    </ng-template>
+
+    <div [ngSwitch]="switchcolor">
+        <div *ngSwitchCase="'blue'">Blue IS GOOD</div>
+        <div *ngSwitchCase="'red'">Blue IS GOOD</div>
+        <div *ngSwitchCase="'yellow'">Blue IS GOOD</div>
+        <div *ngSwitchDefault>Pick Again</div>
+    </div>
+    <div *ngFor="let arr of forarray">
+        <h2>{{arr}}</h2>
+    </div>
+
+    <h2>{{"Parent data = " + datafromparent}}</h2>
+    <button (click)="senddata()">SEND DATA TO PARENT</button>
+</div>
